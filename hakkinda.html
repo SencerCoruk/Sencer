@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkında - Sencer Coruk</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+:root {
+            /* Warm Natural Color Palette */
+            --primary-color: #5D2F0A;      /* Koyu sıcak kahve */
+            --secondary-color: #FF8C00;    /* Kumkuat */
+            --accent-color: #660019;       /* Koyu bordo */
+            --linen-color: #FAF0E6;        /* Keten */
+            --pure-white: #FFFFFF;         /* Saf beyaz */
+            
+            /* Gradients */
+            --gradient-main: linear-gradient(135deg, #5D2F0A 0%, #FF8C00 50%, #660019 100%);
+            --gradient-secondary: linear-gradient(45deg, #FAF0E6 0%, #FF8C00 100%);
+            --gradient-bg: linear-gradient(135deg, #FFFFFF 0%, #FAF0E6 25%, #FFF8DC 50%, #F5DEB3 75%, #DEB887 100%);
+            --gradient: var(--gradient-main);
+            
+            /* Text Colors */
+            --text-dark: #2A1A08;          /* Çok koyu kahve */
+            --text-light: #6B5339;         /* Koyu açık kahve */
+            --text-white: #FFFFFF;         /* Saf beyaz */
+            
+            /* Backgrounds */
+            --bg-white: #FFFFFF;           /* Saf beyaz */
+            --bg-light: #FAF0E6;           /* Keten */
+            --bg-gray: #f7fafc;
+            --bg-glass: rgba(250, 240, 230, 0.85);
+            
+            /* Advanced Transitions */
+            --transition-fast: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition: var(--transition-smooth);
+            
+            /* Shadows */
+            --shadow-soft: 0 8px 32px rgba(93, 47, 10, 0.18);
+            --shadow-medium: 0 16px 48px rgba(255, 140, 0, 0.18);
+            --shadow-strong: 0 24px 64px rgba(102, 0, 25, 0.25);
+            --shadow-neon: 0 0 20px rgba(255, 140, 0, 0.4);
+            --shadow: var(--shadow-soft);
+            --shadow-lg: var(--shadow-medium);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--gradient-bg);
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+            animation: gradientShift 15s ease-in-out infinite;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(128, 0, 32, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+            animation: particleFloat 25s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            animation: headerSlideDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .header:hover {
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: var(--shadow-medium);
+        }
+
+        @keyframes headerSlideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            position: relative;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(2deg);
+            filter: drop-shadow(var(--shadow-neon));
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                filter: brightness(1);
+            }
+            50% {
+                filter: brightness(1.2) contrast(1.1);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-dark);
+        }
+
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 3rem;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--gradient-main);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textShimmer 3s ease-in-out infinite, pageEntrance 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: default;
+            position: relative;
+        }
+
+        .page-title:hover {
+            animation-play-state: paused;
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 8px rgba(139, 69, 19, 0.3));
+        }
+
+        @keyframes textShimmer {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes pageEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(60px) scale(0.8);
+            }
+            60% {
+                opacity: 0.8;
+                transform: translateY(-10px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .cv-section {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+            transition: var(--transition-smooth);
+            animation: sectionSlideUp 0.8s ease-out 0.2s both;
+        }
+
+        .cv-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+            border-color: rgba(255, 140, 0, 0.3);
+        }
+
+        @keyframes sectionSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cv-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: var(--shadow-strong);
+            transition: var(--transition-bounce);
+        }
+
+        .cv-image:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 20px 60px rgba(255, 140, 0, 0.25);
+        }
+
+        .apps-detail-section {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition-smooth);
+            animation: sectionSlideUp 0.8s ease-out 0.4s both;
+        }
+
+        .apps-detail-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+            border-color: rgba(255, 140, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .app-detail {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 0 15px 15px 0;
+            transition: var(--transition-smooth);
+            animation: appDetailSlide 0.6s ease-out both;
+        }
+
+        .app-detail:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+
+        .app-detail:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+
+        .app-detail:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-left-color: var(--accent-color);
+            box-shadow: var(--shadow-soft);
+        }
+
+        @keyframes appDetailSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .app-detail h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .app-detail p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-main);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: var(--transition-bounce);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+
+        .app-link:hover::before {
+            left: 0;
+        }
+
+        .app-link:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .app-link i {
+            transition: var(--transition-bounce);
+        }
+
+        .app-link:hover i {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        .external-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .external-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--dark-accent) 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-main);
+            animation: footerLineGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes footerLineGlow {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scaleX(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scaleX(1.1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .cv-section,
+            .apps-detail-section {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .app-detail {
+                padding: 1rem;
+            }
+        }
+
+
+    </style>
+  </head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Sencer Coruk</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkinda.html" class="active">Hakkında</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+</ul>
+</nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Hakkımda</h1>
+
+            <section class="cv-section">
+                <h2 class="section-title">CV</h2>
+                <img src="cv.png" alt="Sencer Coruk CV" class="cv-image">
+            </section>
+
+            <section class="apps-detail-section">
+                <h2 class="section-title">Uygulama Detayları</h2>
+                
+                <div class="app-detail">
+                    <h3><i class="fas fa-gavel"></i> Hukuk Sözlüğü</h3>
+                    <p>2500+ hukuk terimi içeren kapsamlı bir sözlük uygulaması. Hukuk alanında bilgi edinmek isteyenler için ideal bir kaynak. Her terim için detaylı açıklamalar ve not alma özelliği bulunmaktadır.</p>
+                    <a href="https://apps.apple.com/tr/app/hukuk-s%C3%B6zl%C3%BC%C4%9F%C3%BC/id6740770261?l=tr" class="app-link" target="_blank">
+                        <i class="fab fa-apple"></i>
+                        <span>App Store'da İncele</span>
+                    </a>
+                    <p style="margin-top: 1rem;">Daha fazla bilgi için <a href="https://sencercoruk.github.io/Hukuk/index.html" class="external-link" target="_blank">web sitemizi ziyaret edin</a>.</p>
+</div>
+      
+                <div class="app-detail">
+                    <h3><i class="fas fa-bell"></i> Hatırla+</h3>
+                    <p>Günlük yaşamınızı düzenlemek için tasarlanmış akıllı bir hatırlatıcı ve takvim uygulaması. Sezgisel arayüzü ile kişisel ve profesyonel hayatınızdaki tüm görevleri, randevuları ve özel günleri kolayca yönetin.</p>
+                    <a href="https://apps.apple.com/tr/app/hat%C4%B1rla/id6743100981?l=tr" class="app-link" target="_blank">
+                        <i class="fab fa-apple"></i>
+                        <span>App Store'da İncele</span>
+                    </a>
+  </div>
+
+                <div class="app-detail">
+                    <h3><i class="fas fa-utensils"></i> Günün Lezzeti</h3>
+                    <p>Yemek seçiminde kararsız kalanlar için mükemmel bir yardımcı. Kahvaltıdan ana yemeğe, tatlıdan atıştırmalıklara kadar geniş bir yelpazede Türk mutfağının lezzetli tariflerini sunar.</p>
+                    <a href="https://apps.apple.com/tr/app/g%C3%BCn%C3%BCn-lezzeti/id6743683849?l=tr" class="app-link" target="_blank">
+                        <i class="fab fa-apple"></i>
+                        <span>App Store'da İncele</span>
+                    </a>
+        </div>
+
+                <div class="app-detail">
+                    <h3><i class="fas fa-brain"></i> MyFlashQuiz</h3>
+                    <p>Eğlenceli quiz uygulaması ile bilginizi test edin ve yeni şeyler öğrenin. Çeşitli kategorilerde sorular ile hem eğlenin hem de kendinizi geliştirin.</p>
+                    <a href="https://apps.apple.com/tr/app/myflashquiz/id6748656045?l=tr" class="app-link" target="_blank">
+                        <i class="fab fa-apple"></i>
+                        <span>App Store'da İncele</span>
+                    </a>
+</div>
+      
+                <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: var(--bg-gray); border-radius: 10px;">
+                    <p style="color: var(--text-light); margin-bottom: 0;">🚀 Yakında yeni uygulamalar geliyor!</p>
+        </div>
+            </section>
+</div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Sencer Coruk. Tüm hakları saklıdır.</p>
+</footer>
+
+<script>
+// Interactive elements for hakkinda page
+document.addEventListener('DOMContentLoaded', function() {
+    // Header background change on scroll
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(250, 240, 230, 0.95)';
+            header.style.boxShadow = '0 8px 32px rgba(139, 69, 19, 0.15)';
+        } else {
+            header.style.background = 'rgba(250, 240, 230, 0.85)';
+            header.style.boxShadow = '0 8px 32px rgba(139, 69, 19, 0.12)';
+        }
+    });
+
+
+
+    // Add click animations to app links
+    const appLinks = document.querySelectorAll('.app-link');
+    appLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: rippleEffect 0.6s ease-out;
+                pointer-events: none;
+            `;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, observerOptions);
+
+    // Observe sections
+    const sections = document.querySelectorAll('.cv-section, .apps-detail-section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+// Add ripple effect CSS
+const rippleCSS = `
+    @keyframes rippleEffect {
+        to {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+`;
+
+const style = document.createElement('style');
+style.textContent = rippleCSS;
+document.head.appendChild(style);
+</script>
+
+  </body>
+</html>
